@@ -2,23 +2,16 @@
 <head><title>Greg's Blog</title></head>
 <body>
 	<div>
-		<h1>Greg's Blog</h2>
+		<h1><a href="/">Greg's Blog</a></h2>
 	</div>
 	
-	<div>
-		<h3><a href="">First Post</a></h3>
-		<p>Comment stuff for first post...</p>
-		<p>published: 9/22/2016 11:00 p.m.</p>
-	</div>
-	
-	<div>
-		<h3><a href="">Second Post</a></h3>
-		<p>Comment stuff for second post...</p>
-		<p>published: 9/22/2016 11:02 p.m.</p>
-	</div>
+{% for post in posts %}
+		<div>
+			<p>published: {{ post.publish_date }}</p>
+			<h1><a href="">{{ post.title }}</a></h1>
+			<p>{{ post.text|linebreaksbr}}</p>
+		</div>
+{% endfor %}	
 	
 </body>
 </html>
-{% for post in posts %}
-	{{ post }}
-{% endfor %}
